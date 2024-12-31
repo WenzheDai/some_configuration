@@ -1,0 +1,97 @@
+format = """
+[ ](bright-white)\
+[󰣇 ](bold fg:black bg:bright-white)\
+[](bg:bright-purple fg:bright-white)\
+$nodejs\
+$julia\
+$python\
+$rust\
+[](fg:bright-purple bg:bright-green)\
+$git_branch\
+$git_status\
+[](fg:bright-green bg:bright-blue)\
+$directory\
+[](fg:bright-blue)\
+$fill\
+[](fg:red)\
+$username\
+[ ](fg:cyan bg:red)\
+$hostname\
+[](fg:bright-white bg:cyan)\
+$time\
+[ ](fg:bright-white)\
+\n$character"""
+
+[fill]
+symbol = '-'
+style = 'fg:bright-black'
+
+[nodejs]
+disabled = true
+style = "fg:black bg:bright-purple"
+symbol = " 󰎙 "
+format = "[$symbol($version )]($style)"
+
+[python]
+style = "fg:black bg:bright-purple"
+# format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+format = '[${symbol}(\($virtualenv\) )]($style)'
+symbol = "  "
+pyenv_version_name = false
+
+[julia]
+disabled = true
+style = "fg:black bg:bright-purple"
+format = "[$symbol($version )]($style)"
+symbol = "  "
+
+[rust]
+disabled = true
+style = "fg:black bg:bright-purple"
+symbol = ' 󱘗 '
+format = '[$symbol($version )]($style)'
+
+[character]
+success_symbol = '[  ](bold bright-green)'
+error_symbol = '[  ](bold red)'
+
+[directory]
+style = "fg:black bg:bright-blue"
+format = "[$path]($style)"
+truncation_length = 1
+truncation_symbol = " 󰉒 "
+home_symbol = "  "
+truncate_to_repo = false
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:bright-green"
+format = '[[ $symbol $branch ](fg:black bg:bright-green)]($style)'
+
+[git_status]
+disabled = true
+style = "bg:bright-green"
+format = '[[ ($all_status $ahead_behind)](fg:black bg:bright-green)]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+format = '[[  $time](fg:black bg:bright-white)]($style)'
+
+[hostname]
+ssh_only = true
+format = '[󰌘 ](fg:black bg:cyan)[$ssh_symbol](fg:black bg:cyan)'
+trim_at = ''
+disabled = false
+
+[username]
+style_user = "bg:red fg:black"
+format = '[ ]($style)[$user]($style)'
+disabled = false
+show_always = true
