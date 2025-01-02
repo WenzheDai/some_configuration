@@ -9,6 +9,10 @@ tar -xvf ...tar.xz
 
 将解压后对应文件内 include 和 lib 文件夹内的所有文件复制到cuda目录下即可
 
+
+## 安装cuda-toolkit
+(CUDA Toolkit)[https://developer.nvidia.com/cuda-downloads?target_os=Linux]
+
 ```bash
 # 验证
 nvcc -V
